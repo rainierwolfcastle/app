@@ -17,6 +17,7 @@ function registerWebhook(req, res, next) {
   };
 
   request(options, function (error, response, body) {
+    console.log(error + " " + response.statusCode);
     if (error) {
       return res.sendStatus(400);
     } else if (response.statusCode !== 204) {
@@ -38,6 +39,7 @@ function registerPreSubscription(req, res, next) {
   };
 
   request(options, function (error, response, body) {
+    console.log(error + " " + response.statusCode);
     if (error) {
       return res.sendStatus(400);
     } else if (response.statusCode !== 202 && response.statusCode !== 204) {
@@ -57,6 +59,7 @@ function getEndpoints(req, res, next) {
   };
 
   request(options, function (error, response, body) {
+    console.log(error + " " + response.statusCode);
     if (error) {
       return res.sendStatus(400);
     } else if (response.statusCode !== 200) {
