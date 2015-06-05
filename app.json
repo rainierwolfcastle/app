@@ -1,0 +1,11 @@
+{
+  "name": "Heroku Sample App",
+  "description": "TODO: Add a short description about Heroku Sample App",
+  "keywords": [
+    "small",
+    "sharp",
+    "tool"
+  ],
+  "addons": [],
+  "env": {}
+}

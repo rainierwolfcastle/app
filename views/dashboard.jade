@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-md-12")
+        h1= title
+    div(class="row")
+      div(class="col-md-12")
+        table(class="table")
+          thead
+            tr
+              th Name
+              th Button presses
+          tbody
+            each endpoint in endpoints
+              tr
+                td #{endpoint.name}              
+                td(id="#{endpoint.name}-button-presses") 0
+  script.
+    $(function() {
+      function update() {
+        $.get("/update", function(data) {
+          if (data.notifications) {
+            console.log(data);
+            for (i = 0; i < data.notifications.length; i++) {            
+              $("#" + data.notifications[i].ep + "-button-presses").text(atob(data.notifications[i].payload));
+            }
+          }
+        });
+      }
+      setInterval(update, 250);
+    });

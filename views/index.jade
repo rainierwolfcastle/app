@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-md-12")
+        h1= title
+    div(class="row")
+      form(class="form-horizontal", action="/submit", method="POST")
+        div(class="form-group")
+          label(for="accessToken", class="col-md-2 control-label") Access Token 
+          div(class="col-md-5")
+            input(type="text", class="form-control", id="accessToken", name="accessToken", placeholder="Access Token")
+        div(class="form-group")
+          label(for="domain", class="col-md-2 control-label") Domain
+          div(class="col-md-5")
+            input(type="text", class="form-control", id="domain", name="domain", placeholder="Domain")
+        input(type="submit", class="btn btn-default", value="Get my devices")
